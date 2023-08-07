@@ -1,0 +1,17 @@
+name: CI
+on: [push]
+jobs:
+  lighthouseci:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "18.14.0"
+      - name: Install dependencies
+        run: yarn install
+      - name: Yarn add lhci
+        run: yarn global add @lhci/cli@0.12.x
+      - run: lhci autorun
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}

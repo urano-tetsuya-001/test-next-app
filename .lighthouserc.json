@@ -1,0 +1,17 @@
+{
+  "ci": {
+    "collect": {
+      "numberOfRuns": 1,
+      "startServerCommand": "yarn dev",
+      "startServerReadyPattern": "started server",
+      "settings": {
+        "chromeFlags": "--no-sandbox",
+        "emulatedUserAgent": "lighthouseci"
+      },
+      "url": ["http://localhost:3000"]
+    },
+    "upload": {
+      "target": "temporary-public-storage"
+    }
+  }
+}
